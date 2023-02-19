@@ -1,14 +1,14 @@
-Select M.MST_SQ as 'Employee No.', 
+SELECT M.MST_SQ as 'Employee No.', 
        M.MST_FirstName as 'First Name', 
-	   M.MST_LastName as 'Last Name', 
-	   D.DEPT_Name as 'Company',
-Case 
-When T.TAG_Suspend='1' Then 'Yes'
-End as 'Suspended'
-From MASTER as M, 
+       M.MST_LastName as 'Last Name', 
+       D.DEPT_Name as 'Company',
+CASE 
+WHEN T.TAG_Suspend='1' Then 'Yes'
+END as 'Suspended'
+FROM MASTER as M, 
      EMPLOYEE as E, 
-	 DEPARTMENT as D, 
-	 TAG as T
-Where M.MST_SQ=E.MST_SQ and M.MST_SQ=T.MST_SQ and E.MST_SQ= T.MST_SQ and E.DEPT_No=D.DEPT_No 
+     DEPARTMENT as D, 
+     TAG as T
+WHERE M.MST_SQ=E.MST_SQ and M.MST_SQ=T.MST_SQ and E.MST_SQ= T.MST_SQ and E.DEPT_No=D.DEPT_No 
 and T.TAG_Suspend='1'
-Order by DEPT_Name, MST_FirstName,M.MST_SQ;
+ORDER BY DEPT_Name, MST_FirstName,M.MST_SQ;
