@@ -3,7 +3,7 @@ SELECT M.MST_SQ as 'Employee No.',
        M.MST_LastName as 'Last Name', 
        D.DEPT_Name as 'Company',
 CASE 
-WHEN T.TAG_Suspend='1' Then 'Yes'
+WHEN T.TAG_Suspend='1' THEN 'Yes'
 END as 'Suspended'
 FROM MASTER as M, 
      EMPLOYEE as E, 
